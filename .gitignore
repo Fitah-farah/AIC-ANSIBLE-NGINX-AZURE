@@ -1,0 +1,18 @@
+# Terraform state files and config
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform/
+terraform/override.tf
+terraform/override.tf.json
+terraform/*.tfvars
+terraform/*.tfvars.json
+
+# VS Code and OS-specific junk (optional but helpful)
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Python/Ansible extras (optional if applicable)
+__pycache__/
+*.retry
+*.log

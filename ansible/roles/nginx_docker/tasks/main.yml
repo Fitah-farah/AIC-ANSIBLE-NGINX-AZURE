@@ -1,0 +1,46 @@
+
+---
+- name: Install Docker
+  apt:
+    name: docker.io
+    state: present
+    update_cache: yes
+  become: true
+
+- name: Ensure Docker is started and enabled
+  service:
+    name: docker
+    state: started
+    enabled: true
+  become: true
+
+- name: Ensure /home/azureuser directory exists
+  file:
+    path: /home/azureuser
+    state: directory
+    owner: azureuser
+    group: azureuser
+    mode: '0755'
+
+- name: Copy Dockerfile and web files
+  copy:
+    src: "{{ item }}"
+    dest: "/home/azureuser/{{ item }}"
+  loop:
+    - Dockerfile
+    - index.html
+
+- name: Build custom Docker image
+  docker_image:
+    name: custom-nginx
+    source: build
+    build:
+      path: /home/azureuser
+
+- name: Run custom Nginx container
+  docker_container:
+    name: nginx
+    image: custom-nginx
+    state: started
+    ports:
+      - "80:80"

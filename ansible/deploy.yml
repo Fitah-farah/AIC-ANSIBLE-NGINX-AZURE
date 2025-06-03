@@ -1,0 +1,6 @@
+- name: Deploy Dockerized Web App
+  hosts: web
+  become: yes
+
+  roles:
+    - nginx_docker
