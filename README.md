@@ -84,14 +84,14 @@ ansible/  # Ansible playbooks and roles
 
 ### 🧱 Deploy Infrastructure
 
-```bash
+bash
 cd terraform
 terraform init
-.Screenshots/terraform-init.png
+![terraform init](Screenshots/terraform-init.png)
 
 terraform apply
 
-.Screenshots/terraform-res-creation.png
+![creating resources](Screenshots/terraform-res-creation.png)
 
 🔐 Get Public IP
 bash
@@ -99,7 +99,7 @@ Copy the terraform output public_ip add to the ansible inventory.ini file
 
 verify the created resources in azure.
 
-.Screenshots/azure-resources.png
+![resources in azure](Screenshots/azure-resources.png)
 
 ⚙️ Configure & Deploy with Ansible
 bash
@@ -107,9 +107,9 @@ bash
 cd ../ansible
 ansible-playbook -i inventory.ini deploy.yml
 
-.Screenshots/deploying-the-app.png
+![deploying ansible](Screenshots/deploying-the-app.png)
 
-.Screenshots/Live-web.png
+![live web](Screenshots/Live-web.png)
 
 🌍 Access Web App
 Visit:
@@ -118,7 +118,7 @@ http://<your_public_ip>
 
 Web app running in browser
 
-.Screenshots/Live-web.png
+![web live](Screenshots/Live-web.png)
 
 🧠 Lessons Learned
 Modular Terraform structure improves reusability
