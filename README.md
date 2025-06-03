@@ -18,28 +18,30 @@ This project demonstrates Infrastructure as Code (IaC) and Configuration Managem
 
 IAC-ANSIBLE-NGINX-AZURE/
 │
-├── terraform/
-│   ├── main.tf
-│   ├── modules/
-│   │   ├── network/
-│   │   │   ├── main.tf
-│   │   │   ├── variables.tf
-│   │   │   └── outputs.tf
-│   │   └── compute/
-│   │       ├── main.tf
-│   │       ├── variables.tf
-│   │       └── outputs.tf
+|  - terraform/
+│       - main.tf
+|        - provider.tf
+|        - output.tf
+│       - modules/
+│           - network/
+│               - main.tf
+│               - variables.tf
+│               - outputs.tf
+│           - compute/
+│               - main.tf
+│               - variables.tf
+│               - outputs.tf
 
 ansible/  # Ansible playbooks and roles
-├── inventory.ini               # Ansible inventory with target hosts
-├── deploy.yml                 # Main playbook to deploy Nginx Docker container
-└── roles/
-    └── nginx_docker/          # Custom Ansible role
-        ├── tasks/
-        │   └── main.yml       # Tasks to install Docker and run Nginx
-        └── files/             
-            ├── Dockerfile     # Custom Dockerfile for Nginx
-            └── index.html     # Web content served by Nginx
+   - inventory.ini               # Ansible inventory with target hosts
+   - deploy.yml                 # Main playbook to deploy Nginx Docker container
+   - roles/
+       - nginx_docker/          # Custom Ansible role
+            -tasks/
+                -main.yml       # Tasks to install Docker and run Nginx
+            - files/             
+                - Dockerfile     # Custom Dockerfile for Nginx
+                -  index.html     # Web content served by Nginx
 
 
 
@@ -77,56 +79,64 @@ ansible/  # Ansible playbooks and roles
 ## 🚀 Getting Started
 
 ### 🔧 Prerequisites
-- Azure CLI
-- Terraform
-- Ansible
-- SSH key pair (`id_rsa` and `id_rsa.pub`)
+   - Azure CLI
+   - Terraform
+   - Ansible
+   - SSH key pair (`id_rsa` and `id_rsa.pub`)
 
 ### 🧱 Deploy Infrastructure
 
-bash
-cd terraform
-terraform init
-![terraform init](Screenshots/terraform-init.png)
+   bash
+   cd terraform
+   terraform init
+   ![terraform init](Screenshots/terraform-init.png)
 
-terraform apply
+   terraform apply
 
-![creating resources](Screenshots/terraform-res-creation.png)
+   ![creating resources](Screenshots/terraform-res-creation.png)
 
 🔐 Get Public IP
-bash
-Copy the terraform output public_ip add to the ansible inventory.ini file
+   
+   bash
+   
+   Copy the terraform output public_ip add to the ansible inventory.ini file
 
-verify the created resources in azure.
+   verify the created resources in azure.
 
-![resources in azure](Screenshots/azure-resources.png)
+   ![resources in azure](Screenshots/azure-resources.png)
 
-⚙️ Configure & Deploy with Ansible
-bash
+### ⚙️ Configure & Deploy with Ansible
 
-cd ../ansible
-ansible-playbook -i inventory.ini deploy.yml
+   bash
 
-![deploying ansible](Screenshots/deploying-the-app.png)
+   cd ../ansible
 
-![live web](Screenshots/Live-web.png)
+   ansible-playbook -i inventory.ini deploy.yml
 
-🌍 Access Web App
+
+   ![deploying ansible](Screenshots/deploying-the-app.png)
+
+
+   ![live web](Screenshots/Deployed-to-azure.png)
+
+### 🌍 Access Web App
+
 Visit:
 Copy
+
 http://<your_public_ip>
 
 Web app running in browser
 
 ![web live](Screenshots/Live-web.png)
 
-🧠 Lessons Learned
-Modular Terraform structure improves reusability
+### 🧠 Lessons Learned
+   Modular Terraform structure improves reusability
 
-Ansible roles make configuration clean and reusable
+   Ansible roles make configuration clean and reusable
 
-Dockerized apps simplify deployment on cloud VMs
+   Dockerized apps simplify deployment on cloud VMs
 
 
-🤝 Contributions
-Pull requests are welcome. Feel free to open issues for feature requests or bugs.
+### 🤝 Contributions
+   Pull requests are welcome. Feel free to open issues for feature requests or bugs.
