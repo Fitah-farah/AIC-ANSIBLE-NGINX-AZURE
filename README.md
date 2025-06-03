@@ -16,34 +16,30 @@ This project demonstrates Infrastructure as Code (IaC) and Configuration Managem
 
 ## 📁 Project Structure
 
-IAC-ANSIBLE-NGINX-AZURE/
-│
-|  - terraform/
-│       - main.tf
-|        - provider.tf
-|        - output.tf
-│       - modules/
-│           - network/
-│               - main.tf
-│               - variables.tf
-│               - outputs.tf
-│           - compute/
-│               - main.tf
-│               - variables.tf
-│               - outputs.tf
+   IAC-ANSIBLE-NGINX-AZURE/
+      - terraform/
+         - main.tf
+         - provider.tf
+         - output.tf
+         - modules/
+            - network/
+               - main.tf               
+               - variables.tf
+               - outputs.tf      
+            - vm/
+               - main.tf
+               - variables.tf
+               - outputs.tf
 
-ansible/  # Ansible playbooks and roles
-   - inventory.ini               # Ansible inventory with target hosts
-   - deploy.yml                 # Main playbook to deploy Nginx Docker container
-   - roles/
-       - nginx_docker/          # Custom Ansible role
-            -tasks/
-                -main.yml       # Tasks to install Docker and run Nginx
+      ansible/                         # Ansible playbooks and roles
+         - inventory.ini               # Ansible inventory with target hosts
+         - deploy.yml                  # Main playbook to deploy Nginx Docker container
+         - roles/nginx_docker/         # Custom Ansible role
+            - tasks/
+               - main.yml              # Tasks to install Docker and run Nginx
             - files/             
-                - Dockerfile     # Custom Dockerfile for Nginx
-                -  index.html     # Web content served by Nginx
-
-
+               - Dockerfile            # Custom Dockerfile for Nginx
+               - index.html            # Web content served by Nginx
 
 ---
 
@@ -87,8 +83,11 @@ ansible/  # Ansible playbooks and roles
 ### 🧱 Deploy Infrastructure
 
    bash
+
    cd terraform
+
    terraform init
+   
    ![terraform init](Screenshots/terraform-init.png)
 
    terraform apply
@@ -103,9 +102,10 @@ ansible/  # Ansible playbooks and roles
 
    verify the created resources in azure.
 
+
    ![resources in azure](Screenshots/azure-resources.png)
 
-### ⚙️ Configure & Deploy with Ansible
+### ⚙️ Configure & Deploy the app to azure vm with Ansible
 
    bash
 
