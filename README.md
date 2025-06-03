@@ -18,20 +18,20 @@ This project demonstrates Infrastructure as Code (IaC) and Configuration Managem
 
 IAC-ANSIBLE-NGINX-AZURE/
    - terraform/
-      - main.tf
-         - provider.tf
-         - output.tf
-         - modules/
-            - network/
-              - main.tf               
-              - variables.tf
-              - outputs.tf      
-            - vm/
-              - main.tf
-              - variables.tf
-              - outputs.tf
+     - main.tf
+     - provider.tf
+     - output.tf
+     - modules/
+       - network/
+         - main.tf               
+         - variables.tf
+         - outputs.tf      
+       - vm/
+         - main.tf
+         - variables.tf
+         - outputs.tf
              
-   ansible/                            # Ansible playbooks and roles
+   - ansible/                            # Ansible playbooks and roles
       - inventory.ini                  # Ansible inventory with target hosts
         - deploy.yml                   # Main playbook to deploy Nginx Docker container
         - roles/nginx_docker/          # Custom Ansible role
