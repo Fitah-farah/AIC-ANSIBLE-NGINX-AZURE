@@ -2,6 +2,9 @@
 
 🚀 A fully automated project that provisions an Azure VM using Terraform, configures it with Ansible, and deploys a Dockerized Nginx web server with a custom HTML page.
 
+![Diagram](Screenshots/Diagram.png)
+
+
 ---
 
 ## 🌐 Overview
@@ -15,31 +18,39 @@ This project demonstrates Infrastructure as Code (IaC) and Configuration Managem
 ---
 
 ## 📁 Project Structure
-
-IAC-ANSIBLE-NGINX-AZURE/
-   - terraform/
-     - main.tf
-     - provider.tf
-     - output.tf
-     - modules/
-       - network/
-         - main.tf               
-         - variables.tf
-         - outputs.tf      
-       - vm/
-         - main.tf
-         - variables.tf
-         - outputs.tf
-             
-   - ansible/                            # Ansible playbooks and roles
-      - inventory.ini                  # Ansible inventory with target hosts
-        - deploy.yml                   # Main playbook to deploy Nginx Docker container
-        - roles/nginx_docker/          # Custom Ansible role
-          - tasks/
-            - main.yml                 # Tasks to install Docker and run Nginx
-          - files/             
-            - Dockerfile               # Custom Dockerfile for Nginx
-            - index.html               # Web content served by Nginx
+IAC-ANSIBLE-NGINX-AZURE-
+|
+├── ansible
+│   ├── deploy.yml
+│   ├── inventory.ini
+│   └── roles
+│       └── nginx_docker
+│           ├── defaults
+│           │   └── main.yml
+│           ├── files
+│           │   ├── Dockerfile
+│           │   └── index.html
+│           ├── handlers
+│           │   └── main.yml
+│           ├── tasks
+│           │   └── main.yml
+│           ├── templates
+│           └── vars
+│               └── main.yml
+└── terraform
+    ├── main.tf
+    ├── outputs.tf
+    ├── providers.tf
+    └── variables.tf
+    ├── modules
+    │   ├── network
+    │   │   ├── main.tf
+    │   │   ├── outputs.tf
+    │   │   └── variables.tf
+    │   └── vm
+    │       ├── main.tf
+    │       ├── outputs.tf
+    │       └── variables.tf
 
 ---
 
