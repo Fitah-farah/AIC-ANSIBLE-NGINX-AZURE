@@ -30,11 +30,11 @@ jobs:
 
       - name: Terraform Format Check
         run: terraform fmt -check -recursive
-        working-directory: ./Terraform
+        working-directory: ./terraform
 
       - name: Terraform Validate
         run: terraform validate
-        working-directory: ./Terraform
+        working-directory: ./terraform
 
       - name: Ansible Lint
         run: ansible-lint Ansible/deploy.yml
