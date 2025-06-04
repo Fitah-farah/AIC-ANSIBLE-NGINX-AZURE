@@ -17,12 +17,6 @@ This project demonstrates Infrastructure as Code (IaC) and Configuration Managem
 
 ---
 
-## 📁 Project Structure
-
-![proj-strucuture](Screenshots/structure.png)
-
----
-
 ## ⚙️ Technologies Used
 
 - [Terraform](https://www.terraform.io/)
