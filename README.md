@@ -18,39 +18,8 @@ This project demonstrates Infrastructure as Code (IaC) and Configuration Managem
 ---
 
 ## 📁 Project Structure
-IAC-ANSIBLE-NGINX-AZURE-
-|
-├── ansible
-│   ├── deploy.yml
-│   ├── inventory.ini
-│   └── roles
-│       └── nginx_docker
-│           ├── defaults
-│           │   └── main.yml
-│           ├── files
-│           │   ├── Dockerfile
-│           │   └── index.html
-│           ├── handlers
-│           │   └── main.yml
-│           ├── tasks
-│           │   └── main.yml
-│           ├── templates
-│           └── vars
-│               └── main.yml
-└── terraform
-    ├── main.tf
-    ├── outputs.tf
-    ├── providers.tf
-    └── variables.tf
-    ├── modules
-    │   ├── network
-    │   │   ├── main.tf
-    │   │   ├── outputs.tf
-    │   │   └── variables.tf
-    │   └── vm
-    │       ├── main.tf
-    │       ├── outputs.tf
-    │       └── variables.tf
+
+![proj-strucuture](Screenshots/structure.png)
 
 ---
 
