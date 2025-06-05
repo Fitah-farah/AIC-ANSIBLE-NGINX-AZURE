@@ -1,21 +1,20 @@
-
 ---
 - name: Install Docker
-  apt:
+  ansible.builtin.apt:
     name: docker.io
     state: present
-    update_cache: yes
+    update_cache: true
   become: true
 
 - name: Ensure Docker is started and enabled
-  service:
+  ansible.builtin.service:
     name: docker
     state: started
     enabled: true
   become: true
 
 - name: Ensure /home/azureuser directory exists
-  file:
+  ansible.builtin.file:
     path: /home/azureuser
     state: directory
     owner: azureuser
@@ -23,22 +22,23 @@
     mode: '0755'
 
 - name: Copy Dockerfile and web files
-  copy:
+  ansible.builtin.copy:
     src: "{{ item }}"
     dest: "/home/azureuser/{{ item }}"
+    mode: "0755"
   loop:
     - Dockerfile
     - index.html
 
 - name: Build custom Docker image
-  docker_image:
+  community.docker.docker_image:
     name: custom-nginx
     source: build
     build:
       path: /home/azureuser
 
 - name: Run custom Nginx container
-  docker_container:
+  community.docker.docker_container:
     name: nginx
     image: custom-nginx
     state: started

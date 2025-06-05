@@ -49,7 +49,7 @@ resource "azurerm_network_security_group" "nsg" {
     destination_address_prefix = "*"
   }
 
-   security_rule {
+  security_rule {
     name                       = "Allow-HTTP"
     priority                   = 1002
     direction                  = "Inbound"

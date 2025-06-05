@@ -12,7 +12,7 @@ module "network" {
   resource_group_name = azurerm_resource_group.rg.name
   vnet_name           = "webappvnet"
   vnet_address_space  = ["10.0.0.0/16"]
-  subnet_name         =  "internal"
+  subnet_name         = "internal"
   subnet_prefixes     = ["10.0.2.0/24"]
   public_ip_name      = "webapp_public_ip"
   nic_name            = "webapp_nic"
@@ -31,7 +31,7 @@ module "vm" {
   ssh_key_bath        = "~/.ssh/id_rsa.pub"
   os_disk_name        = "webapp_os_disk"
 
-} 
+}
 
 
 
