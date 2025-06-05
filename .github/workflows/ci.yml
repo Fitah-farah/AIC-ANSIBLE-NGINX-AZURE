@@ -41,5 +41,5 @@ jobs:
         working-directory: ./terraform
 
       - name: Ansible Lint
-        run: ansible-lint Ansible/deploy.yml
+        run: ansible-lint ansible/deploy.yml
 
