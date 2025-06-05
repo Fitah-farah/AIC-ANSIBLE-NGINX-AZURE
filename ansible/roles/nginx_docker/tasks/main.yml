@@ -14,7 +14,7 @@
   become: true
 
 - name: Ensure /home/azureuser directory exists
-  file:
+  ansible.builtin.file:
     path: /home/azureuser
     state: directory
     owner: azureuser
