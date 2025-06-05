@@ -3,7 +3,7 @@
   ansible.builtin.apt:
     name: docker.io
     state: present
-    update_cache: yes
+    update_cache: true
   become: true
 
 - name: Ensure Docker is started and enabled
@@ -25,6 +25,7 @@
   ansible.builtin.copy:
     src: "{{ item }}"
     dest: "/home/azureuser/{{ item }}"
+    mode: "0755"
   loop:
     - Dockerfile
     - index.html
