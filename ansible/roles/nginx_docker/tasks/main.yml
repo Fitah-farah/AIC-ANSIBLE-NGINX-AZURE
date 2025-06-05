@@ -7,7 +7,7 @@
   become: true
 
 - name: Ensure Docker is started and enabled
-  service:
+  ansible.builtin.service:
     name: docker
     state: started
     enabled: true
@@ -22,7 +22,7 @@
     mode: '0755'
 
 - name: Copy Dockerfile and web files
-  copy:
+  ansible.built.copy:
     src: "{{ item }}"
     dest: "/home/azureuser/{{ item }}"
   loop:
@@ -30,14 +30,14 @@
     - index.html
 
 - name: Build custom Docker image
-  docker_image:
+  community.docker.docker_image:
     name: custom-nginx
     source: build
     build:
       path: /home/azureuser
 
 - name: Run custom Nginx container
-  docker_container:
+  community.docker.docker_container:
     name: nginx
     image: custom-nginx
     state: started
