@@ -1,3 +1,5 @@
+
+[![Lint Terraform and Ansible](https://github.com/Fitah-farah/AIC-ANSIBLE-NGINX-AZURE/actions/workflows/ci.yml/badge.svg)](https://github.com/Fitah-farah/AIC-ANSIBLE-NGINX-AZURE/actions/workflows/ci.yml) 
 # Terraform-Ansible-Nginx-Azure
 
 🚀 A fully automated project that provisions an Azure VM using Terraform, configures it with Ansible, and deploys a Dockerized Nginx web server with a custom HTML page.
@@ -114,3 +116,10 @@ Web app running in browser
 
 ### 🤝 Contributions
    Pull requests are welcome. Feel free to open issues for feature requests or bugs.
+
+
+### LICENSE
+[MIT](./LICENSE)
+
+### Version
+Current Release v1.0
